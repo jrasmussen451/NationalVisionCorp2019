@@ -1,0 +1,23 @@
+<section>
+    <div>
+        <!--hiding this until we remove descriptions or replace with specific images per category
+        <div class="category-header" ng-if="currentCategory.Description">
+            <img src="{{currentCategory.Description}}" />
+            <h1>{{currentCategory.Name}}</h1>
+        </div>
+        <div ng-if="!currentCategory.Description"  class="category-header" ng-hide="isActive('catalog')">
+            <img src="css/images/NVI/nvi-hero-1350x378.jpg" />
+            <h1 ng-bind-html="currentCategory.Name"></h1>
+        </div>-->
+        <div class="category-header" ng-hide="isActive('catalog')">
+            <img src="css/images/NVI/nvi-hero-1350x378.jpg" />
+            <h1 ng-bind-html="currentCategory.Name"></h1>
+        </div>
+
+        <breadcrumbs ng-hide="isActive('catalog')"></breadcrumbs>
+        <categorylistview></categorylistview>
+        <loadingindicator ng-show="productLoadingIndicator" title="{{'Please wait while we fetch all products' | r | xlat}}"/>
+        <productlistview></productlistview>
+
+    </div>
+</section>

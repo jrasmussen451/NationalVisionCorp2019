@@ -1,0 +1,63 @@
+<section class="contact">
+    <accountnavigation ng-show="user.Permissions.contains('ViewSelfAdmin') || user.Type == 'Customer'" />
+    <div class="panel panel-default">
+        <!--<div class="panel-heading">
+            <h3 class="panel-title panel-primary">{{('Contact' | r) + ' ' + ('Us' | r) | xlat }}</h3>
+        </div>-->
+        <!--use the category header styling to add more to this page-->
+        <div class="category-header">
+            <img src="css/images/NVI/nvi-hero-1350x378.jpg" />
+            <h1>{{('Contact' | r) + ' ' + ('Us' | r) | xlat }}</h1>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <div style="font-size:20px;text-align: center;">For help with your order or any portal related questions, please contact National Vision Store Support at (800) 875-2930- option 1.</div>
+                <!-- <br />
+                <hr style="border-bottom:1px solid #ccc" />
+                <br />
+                <div ng-show="!emailSent">
+                    <h5 class="text-danger">The following information is required</h5>
+                    <p>
+                    <form name="contact_us" ng-submit="sendEmail()">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="view-form-icon view-form-icon-input-group">
+                                    <div>
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" ng-required="true" ng-model="emailDetails.Name" tabindex="1" />
+                                    </div>
+                                </div>
+                                <div class="view-form-icon view-form-icon-input-group">
+                                    <div>
+                                        <label>Phone</label>
+                                        <input type="text" class="form-control" ng-required="true" ui-mask="(999)999-9999" ng-model="emailDetails.Phone" tabindex="2" />
+                                    </div>
+                                </div>
+                                <div class="view-form-icon view-form-icon-input-group">
+                                    <div>
+                                        <label>Email</label>
+                                        <input type="text" class="form-control" ng-required="true" ng-model="emailDetails.Email" tabindex="3" ng-pattern="/^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/" />
+                                    </div>
+                                </div>
+                                <div class="view-form-icon view-form-icon-input-group">
+                                    <div>
+                                        <label>Question / Comment</label>
+                                        <textarea class="form-control" ng-required="true" ng-model="emailDetails.Comment" tabindex="4"></textarea>
+                                    </div>
+                                </div>
+                                <p><small><em>We will promptly respond to any inquiries.</em></small></p>
+                                <input type="submit" class="btn btn-primary" style="width:100%;" ng-disabled="contact_us.$invalid" value="Submit" />
+                            </div>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+                <div class="row" ng-show="emailSent">
+                    <div class="col-md-4">
+                        <div class="alert alert-success">Your email has been sent! Thank you!</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</section>

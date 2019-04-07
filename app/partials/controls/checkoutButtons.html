@@ -1,0 +1,30 @@
+<ul>
+    <li ng-if="continue">
+        <button type="button" class="btn btn-warning" redirect="catalog">
+            <span class="hidden-xs">{{'Continue Shopping' | r | xlat}}</span>
+            <span class="visible-xs">{{'Shop' | r | xlat}}</span>
+        </button>
+    </li>
+    <li>
+        <button class="btn btn-danger" ng-click="currentOrder.Status == 'AwaitingApproval' ? cancelEdit() : cancelOrder()">
+            <span class="hidden-xs" ng-if="currentOrder.Status != 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Order' | r) | xlat}}</span>
+            <span class="hidden-xs" ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</span>
+            <span class="visible-xs">{{('Cancel' | r) | xlat}}</span>
+        </button>
+    </li>
+    <li>
+        <button class="btn btn-primary" ng-click="saveChanges()">
+            <loadingindicator ng-show="displayLoadingIndicator" />
+            <span class="hidden-xs">{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</span>
+            <span class="visible-xs">{{('Save' | r) | xlat}}</span>
+        </button>
+    </li>
+    <li>
+        <button class="btn"
+                ng-class="{'btn-warning': cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked, 'btn-success': !cart_shipping.$invalid && !cart_order.$invalid && !cart_billing.$invalid || !submitClicked }"
+                ng-click="submitOrder()" ng-disabled="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked">
+            <i ng-show="cart_shipping.$invalid || cart_order.$invalid || cart_billing.$invalid || submitClicked" class="fa fa-warning"></i>
+            <span>{{('Submit' | r) + ' ' + ('Order' | r) | xlat}}</span>
+        </button>
+    </li>
+</ul>
