@@ -1,0 +1,231 @@
+<div class="col-sm-8 col-md-offset-2">
+    <form name="email_sendCorpDesignRequest" novalidate="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Creative Request Form
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div style="margin-top:30px;">
+                    <div style="margin-bottom: 15px;" ng-hide="emailSent">
+                        <div class="view-form-icon">
+                            <div class="row">
+                                <div class="col-md-5 col-xs-12">
+                                    <label>Your Name:</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Name"/>
+                                </div>
+                                <div class="col-md-5 col-xs-12">
+                                    <label>Department:</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Department"/>
+                                </div>
+                                <div class="col-md-2 col-xs-12">
+                                    <label>Todays Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.DateNeeded"></ocdatefield>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <label>First Draft Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.DraftDate"></ocdatefield>
+                                </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Final Art Due Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.DueDate"></ocdatefield>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <label style="color: red">Is this a RUSH job (final art required in 72 hours or less</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.RushJob">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'NVICreativeMedium'}">
+                                    <label>What creative medium do you need?</label>
+                                    <customselectionfieldnvim ng-if="field.Name == 'NVICreativeMedium'" customfield="field"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'NVIFinalPiece'}">
+                                    <label>What type of final piece do you need?</label>
+                                    <customselectionfieldnvif ng-if="field.Name == 'NVIFinalPiece'" customfield="field"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <label>Who is the intended audience for the final piece?</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Audience"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <label>How will the final piece be used?</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.HowUsed"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-weight: bold">Is this part of a larger campaign/project that has/will have multiple pieces? (If so, please e-mail <a style="text-decoration: underline; color: blue" href="mailto:creative@nationalvision.com">creative@nationalvision.com</a> to set up a meeting with a designer to review the campaign/project.)</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label style="color: red">Is this a NEW or REVISED request?</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.NewRevised">
+                                        <option value="New">New</option>
+                                        <option value="Revised">Revised</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>If Revised, please note previous job name:</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.JobName"/>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>What Brand or Department is requesting?:</label>
+                                    <input type="text" class="form-control" placeholder="Store# (if applicable)" tabindex="5" ng-model="EmailDetails.Brand"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-weight: bold">WHAT ARE THE SPECIFIC IMAGE, CONTENT AND LEGAL REQUIREMENTS? <span style="color:red">PLEASE INCLUDE COMPLETE TEXT FOR ALL COPY REQUIRED.</span> (FEEL FREE TO ATTACH A SEPARATE DOCUMENT WITH ADDITIONAL INFORMATION IF NEEDED)</p><br><p style="font-weight: bold">**IF YOU WOULD LIKE CREATIVE ASSISTANCE TO DEVELOP CONTENT, PLEASE SEND AN E-MAIL TO <a style="text-decoration: underline;color: blue" href="mailto:CREATIVE@NATIONALVISION.COM">CREATIVE@NATIONALVISION.COM</a> TO REQUEST A SEPARATE BRAINSTORM SESSION. THESE SESSIONS <span style="text-decoration:underline;">ARE NOT</span> INCLUDED IN STANDARD PRODUCTION TIMELINES.**</p>
+                                </div>
+                                <!--  <div class="col-md-12 col-xs-12">
+                                     <p>**IF YOU WOULD LIKE CREATIVE ASSISTANCE TO DEVELOP CONTENT, PLEASE SEND AN E-MAIL TO <a target="blank" href="mailto:CREATIVE@NATIONALVISION.COM">CREATIVE@NATIONALVISION.COM</a> TO REQUEST A SEPARATE BRAINSTORM SESSION. THESE SESSIONS <span style="text-decoration:underline;">ARE NOT</span> INCLUDED IN STANDARD PRODUCTION TIMELINES.**</p>
+                                 </div> -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>What image(s) need to be included?</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Images"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>What is the full body/main content that should be included?</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Body"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>What is the required legal copy and preferred placement for the piece?</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Legal"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-weight: bold">What are the file type/deliverable specifications (be as detailed as possible)?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Final file size:</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Size"/>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Final file type:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.Type">
+                                        <option value="PDF/EPS/AI">PDF/EPS/AI</option>
+                                        <option value="JPG/GIF/TIF/PSD">JPG/GIF/TIF/PSD</option>
+                                        <option value="MP4/WMV/MOV">MP4/WMV/MOV</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-weight: bold">Are there any additional creative considerations you'd like the designer to know?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Desired Tone/Feel?</label>
+                                    <input type="text" placeholder="(e.g., playful, sporty, serious, somber, etc.)" class="form-control" tabindex="5" ng-model="EmailDetails.Tone"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Desired color scheme in addition to brand guidelines?</label>
+                                    <input type="text" class="form-control" placeholder="(e.g., primary colors for Back-to-School, holiday colors, muted tones, black/white, etc.)" tabindex="5" ng-model="EmailDetails.Color"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Other:</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Other"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <p style="font-weight: bold">Is there anything additional the designer should know?</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Designers Note:</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="5" ng-model="EmailDetails.DNote"/>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label>1st Delivery:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.1stDelivery"></ocdatefield>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>2nd Delivery:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.2ndDelivery"></ocdatefield>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Completed:</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.Completed"/>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Approval Needed?:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.Approval">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>If Yes please select approval needed by:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.AppNeeded">
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Visual Merch">Visual Merch</option>
+                                        <option value="Legal">Legal</option>
+                                        <option value="Operations">Operations</option>
+                                        <option value="Prof Services">Prof Services</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    Attachments (Word, Excel, .pdf,  or .jpg files only):
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment" type="file" tabindex="20" ng-model="EmailDetails.Attachment"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment2" type="file" tabindex="21" ng-model="EmailDetails.Attachment2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment3" type="file" tabindex="22" ng-model="EmailDetails.Attachment3"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment4" type="file" tabindex="23" ng-model="EmailDetails.Attachment4"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-success pull-right" ng-disabled="email_sendCorpDesignRequest.$invalid" type="button" ng-click="sendCorpDesignRequestEmail(EmailDetails)"></i>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

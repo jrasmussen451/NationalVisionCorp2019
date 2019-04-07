@@ -1,148 +1,215 @@
-<div class="row project-request">
-    <div class="col-sm-8 col-md-offset-2">
-        <form name="email_Send" novalidate="">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Custom Inquiry
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div style="margin-top:30px;">
-                        <div style="margin-bottom: 15px;" ng-hide="emailSent">
-                            <div class="view-form-icon">
-                                <div class="row">
-                                    <div class="col-md-2 col-xs-12">
-                                        <label>Request Date:</label>
-                                        <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.RequestDate"></ocdatefield>
-                                    </div>
-                                    <div class="col-md-4 col-xs-12">
-                                        <label>Requestor:</label>
-                                        <input type="text" class="form-control" tabindex="2" ng-model="EmailDetails.Requestor" required/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Requestor Email:</label>
-                                        <input type="email" class="form-control" tabindex="3" ng-model="EmailDetails.RequestorEmail" required/>
-                                    </div>
+<div class="col-sm-8 col-md-offset-2">
+    <form name="email_Send" novalidate="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Custom Inquiry
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div style="margin-top:30px;">
+                    <div style="margin-bottom: 15px;" ng-hide="emailSent">
+                        <div class="view-form-icon">
+                            <div class="row">
+                                <div class="col-md-2 col-xs-12">
+                                    <label>Request Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.RequestDate"></ocdatefield>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Item Needed:</label>
-                                        <input type="text" class="form-control" tabindex="4" ng-model="EmailDetails.ItemNeeded" required/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Product ID (if known):</label>
-                                        <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.ProductID"/>
-                                    </div>
+                                <div class="col-md-4 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'Requestor'}">
+                                    <label>Requestor:</label>
+                                    <customselectionfieldnvir ng-if="field.Name == 'Requestor'" customfield="field"/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Store Number:</label>
-                                        <input type="text" class="form-control" tabindex="6" ng-model="EmailDetails.StoreNumber"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Date Needed:</label>
-                                        <ocdatefield  format="MM-dd-yyyy" tabindex="7" customfield="EmailDetails.DateNeeded"></ocdatefield>
-                                    </div>
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'RequestorEmail'}">
+                                    <label>Requestor Email:</label>
+                                    <customselectionfieldnvire ng-if="field.Name == 'RequestorEmail'" customfield="field"/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Brand:</label>
-                                        <input type="text" class="form-control" tabindex="8" ng-model="EmailDetails.Brand"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Artwork Source:</label>
-                                        <input type="text" class="form-control" tabindex="9" ng-model="EmailDetails.ArtworkSource"/>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Item Needed:</label>
+                                    <input type="text" class="form-control" tabindex="4" ng-model="EmailDetails.ItemNeeded" required/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Quantity Needed:</label>
-                                        <input type="text" class="form-control" tabindex="10" ng-model="EmailDetails.QuantityNeeded"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Size:</label>
-                                        <input type="text" class="form-control" tabindex="11" ng-model="EmailDetails.Size"/>
-                                    </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Pending Order or Quote?</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.Quote" required>
+                                        <option value="Pending Order">Pending Order</option>
+                                        <option value="Quote">Quote</option>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Printing Specs:</label>
-                                        <input type="text" class="form-control" tabindex="12" ng-model="EmailDetails.PrintingSpecs"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Any Variable Printing?:</label>
-                                        <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.VariablePrinting">
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
-                                        </select>
-                                    </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Finished Size:</label>
+                                    <input type="text" class="form-control" tabindex="4" ng-model="EmailDetails.FinishedSize" required/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>What Info is Variable?:</label>
-                                        <input type="text" class="form-control" tabindex="14" ng-model="EmailDetails.VariableInfo"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Finishing Specs:</label>
-                                        <input type="text" class="form-control" tabindex="15" ng-model="EmailDetails.FinishingSpecs"/>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Date Needed:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="7" customfield="EmailDetails.DateNeeded" required></ocdatefield>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Packing:</label>
-                                        <input type="text" class="form-control" tabindex="16" ng-model="EmailDetails.Packing"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Where to Deliver:</label>
-                                        <input type="text" class="form-control" tabindex="17" ng-model="EmailDetails.DeliveryAddress"/>
-                                    </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Artwork Supplied Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="7" customfield="EmailDetails.ArtworkDate" required></ocdatefield>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Comments:</label>
-                                        <input type="text" class="form-control" tabindex="18" ng-model="EmailDetails.Comments"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields">
-                                        <label>Accounting Code:</label>
-                                        <customselectionfieldnvic ng-if="field.Name == 'AccountingCode'" customfield="field"/>
-                                    </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Print Color:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.PrintColor" required>
+                                        <option value="B&W">B&W</option>
+                                        <option value="Color">Color</option>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label>Accounting Period:</label>
-                                        <input type="text" class="form-control" tabindex="19" ng-model="EmailDetails.AccountingPeriod"/>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <!-- Additional Finishing: (check all that apply) -->
+                                <div class="col-md-12 col-xs-12 form-check form-check-inline">
+                                    <label>Additional Finishing:</label>
+                                    <input type="text" class="form-control" tabindex="8" placeholder="3 Hole Punch, Drill Holes, Shrinkwrap, Laminated, Sides, 3-Ring Binder" ng-model="EmailDetails.AdditionalFinishing"/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        Attachments (Word, Excel, .pdf,  or .jpg files only):
+                            </div>
+                            <!--  <div class="row">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox 1
+                                      </label>
                                     </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox 2
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox 3
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox 4
+                                      </label>
+                                    </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Variable Printing?:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.VariablePrinting">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <input id="attachment" type="file" tabindex="20" ng-model="EmailDetails.Attachment"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <input id="attachment2" type="file" tabindex="21" ng-model="EmailDetails.Attachment2"/>
-                                    </div>
+                                <div class="col-md-5 col-xs-12">
+                                    <label>Packaging (UOM/Qty):</label>
+                                    <input type="text" class="form-control" tabindex="9" ng-model="EmailDetails.Packaging" required/>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <input id="attachment3" type="file" tabindex="22" ng-model="EmailDetails.Attachment3"/>
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <input id="attachment4" type="file" tabindex="23" ng-model="EmailDetails.Attachment4"/>
-                                    </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Where to Deliver:</label>
+                                    <input type="text" class="form-control" tabindex="10" ng-model="EmailDetails.Deliver"/>
                                 </div>
-                                <div class="row">
-                                    <button class="btn btn-success pull-right" ng-disabled="email_Send.$invalid" type="button" ng-click="sendEmail(EmailDetails)"></i>Submit</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'AccountingCode'}">
+                                    <label>Consumption:</label>
+                                    <customselectionfieldnvic ng-if="field.Name == 'AccountingCode'" customfield="field"/>
                                 </div>
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'ExpenseType'}">
+                                    <label>Cost Center:</label>
+                                    <customselectionfieldnvie ng-if="field.Name == 'ExpenseType'" customfield="field"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Available on Portal?:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.AvailableOnPortal" required>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5 col-xs-12">
+                                    <label>Portal User Group:</label>
+                                    <input type="text" class="form-control" tabindex="14" ng-model="EmailDetails.UserGroup"/>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Portal Category:</label>
+                                    <input type="text" class="form-control" tabindex="14" ng-model="EmailDetails.Category"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-xs-12">
+                                    <label>What Store Groups or Stores should see this item on the portal?:</label>
+                                    <input type="text" class="form-control" tabindex="14" ng-model="EmailDetails.GroupsStoreVisible"/>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Per Order Max Qty?:</label>
+                                    <input type="text" class="form-control" tabindex="15" ng-model="EmailDetails.MaxQty"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Inventoried Item?</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.ItemInventory">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Add to NEW STORE Pallet List?:</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.StoreList">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Quantity Needed:</label>
+                                    <input type="text" class="form-control" tabindex="15" ng-model="EmailDetails.Quantity"/>
+                                </div>
+                                <div class="col-md-3 col-xs-12">
+                                    <label>Product Expire Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="7" customfield="EmailDetails.ExpireDate"></ocdatefield>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Comments:</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="18" ng-model="EmailDetails.AdditionalComments"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Submitted Date Time:</label>
+                                    <input type="text" class="form-control" tabindex="18" ng-model="EmailDetails.ReqDateTime"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    Attachments (Word, Excel, .pdf,  or .jpg files only):
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment" type="file" tabindex="20" ng-model="EmailDetails.Attachment"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment2" type="file" tabindex="21" ng-model="EmailDetails.Attachment2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment3" type="file" tabindex="22" ng-model="EmailDetails.Attachment3"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment4" type="file" tabindex="23" ng-model="EmailDetails.Attachment4"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-success pull-right" ng-disabled="email_Send.$invalid" type="button" ng-click="sendEmail(EmailDetails)"></i>Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 </div>

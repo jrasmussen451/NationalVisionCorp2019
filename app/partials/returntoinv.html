@@ -1,0 +1,93 @@
+<div class="col-sm-8 col-md-offset-2">
+    <form name="email_sendCorpReturn" novalidate="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Return To Inventory
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div style="margin-top:30px;">
+                    <div style="margin-bottom: 15px;" ng-hide="emailSent">
+                        <div class="view-form-icon">
+                            <div class="row">
+                                <div class="col-md-2 col-xs-12">
+                                    <label>Request Date:</label>
+                                    <ocdatefield  format="MM-dd-yyyy" tabindex="1" customfield="EmailDetails.RequestDate"></ocdatefield>
+                                </div>
+                                <div class="col-md-4 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'Requestor'}">
+                                    <label>Requestor:</label>
+                                    <customselectionfieldnvir ng-if="field.Name == 'Requestor'" customfield="field"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12" ng-repeat="field in user.CustomFields | filter:{Name:'RequestorEmail'}">
+                                    <label>Requestor Email</label>
+                                    <customselectionfieldnvire ng-if="field.Name == 'RequestorEmail'" customfield="field"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Inventory Return Type</label>
+                                    <select class="form-control" ng-init="init()" tabindex="13" ng-change="changed()" ng-model="EmailDetails.ReturnType" required>
+                                        <option value="Restock Ordered Item">Restock Ordered Item</option>
+                                        <option value="Add Inventory to Item">Add Inventory to Item</option>
+                                        <option value="Add Inventory to Item">Add NEW ITEM</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Existing Order Return - Order #</label>
+                                    <input type="text" class="form-control" tabindex="5" ng-model="EmailDetails.OrderNumber"/>
+                                </div>
+                                <div class="col-md-4 col-xs-12">
+                                    <label>Inventory Add - Item #</label>
+                                    <input type="text" class="form-control" tabindex="4" ng-model="EmailDetails.ItemNumber" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label>Comments</label>
+                                    <textarea style="height: 150px" type="text" class="form-control" tabindex="6" ng-model="EmailDetails.Comments"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <b>Items being returned to inventory need to be taken to the NVI Mail Room upon completion of this form.  The mailroom team has received a copy of this request and will send all inventory to Aero for restocking.  Restocking fee may apply.</b>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Submitted Date Time:</label>
+                                    <input type="text" class="form-control" tabindex="18" ng-model="EmailDetails.ReqDateTime"/>
+                                </div>
+                            </div>
+                            <!-- <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    Attachments (Word, Excel, .pdf,  or .jpg files only):
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment" type="file" tabindex="20" ng-model="EmailDetails.Attachment"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment2" type="file" tabindex="21" ng-model="EmailDetails.Attachment2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment3" type="file" tabindex="22" ng-model="EmailDetails.Attachment3"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input id="attachment4" type="file" tabindex="23" ng-model="EmailDetails.Attachment4"/>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <button class="btn btn-success pull-right" ng-disabled="email_sendCorpReturn.$invalid" type="button" ng-click="sendCorpReturnEmail(EmailDetails)"></i>Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
