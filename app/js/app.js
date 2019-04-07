@@ -5,4 +5,4 @@ four51.app = angular.module('451order', ['ngResource', 'ngRoute', 'ngAnimate', '
     'angulartics', 'angulartics.google.analytics', 'ngAutocomplete', 'OrderCloud-AnonRouter','OrderCloud-SpecForms', 'OrderCloud-BackToTop', 'OrderCloud-Breadcrumbs',
     'OrderCloud-Carousel', 'OrderCloud-CheckoutItemSummary', 'OrderCloud-FeaturedItems', 'OrderCloud-PageFooter', 'OrderCloud-HamburgerNavigationSubcategories',
     'OrderCloud-Minicart', 'OrderCloud-ProductListAddToCart', 'OrderCloud-ProductSearchInput', 'OrderCloud-ProductZoom', 'OrderCloud-SameAsShippingCheckbox',
-    'OrderCloud-SecurityModal', 'OrderCloud-TermsModal', 'OrderCloud-CategoryCollapse', 'OrderCloud-UtilityNavigation']);
+    'OrderCloud-SecurityModal', 'OrderCloud-TermsModal', 'OrderCloud-CategoryCollapse', 'OrderCloud-UtilityNavigation', 'OrderCloud-LargeAddressListSearch']);
