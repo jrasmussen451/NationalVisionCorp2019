@@ -3,20 +3,14 @@ four51.app.directive('orderbilling', ['Address', 'AddressList', function(Address
 		restrict: 'AE',
 		templateUrl: 'partials/controls/orderBilling.html',
 		controller: ['$scope', function($scope) {
-			AddressList.clear();
-			AddressList.billing(function(list) {
-				$scope.billaddresses = list;
-
-				if ($scope.currentOrder) {
-					if (list.length == 1 && !$scope.currentOrder.BillAddressID) {
-						$scope.currentOrder.BillAddressID = list[0].ID;
-					}
-					if ($scope.isEditforApproval) {
-						if (!AddressList.contains($scope.currentOrder.BillAddress))
-							$scope.billaddresses.push($scope.currentOrder.BillAddress);
-					}
-				}
-			});
+			//AddressList.clear();
+			//AddressList.billing(function(list) {
+			//	$scope.billaddresses = list;
+			//	if ($scope.isEditforApproval) {
+			//		if (!AddressList.contains($scope.currentOrder.BillAddress))
+			//			$scope.billaddresses.push($scope.currentOrder.BillAddress);
+			//	}
+			//});
 			$scope.billaddress = { Country: 'US', IsShipping: false, IsBilling: true };
 
 			$scope.$on('event:AddressSaved', function(event, address) {
@@ -25,12 +19,12 @@ four51.app.directive('orderbilling', ['Address', 'AddressList', function(Address
 					$scope.billaddressform = false;
 				}
 
-				AddressList.billing(function(list) {
-					$scope.billaddresses = list;
-					if ($scope.isEditforApproval) {
-						$scope.billaddresses.push($scope.currentOrder.BillAddress);
-					}
-				});
+				//AddressList.billing(function(list) {
+				//	$scope.billaddresses = list;
+				//	if ($scope.isEditforApproval) {
+				//		$scope.billaddresses.push($scope.currentOrder.BillAddress);
+				//	}
+				//});
 				$scope.billaddress = { Country: 'US', IsShipping: false, IsBilling: true };
 			});
 

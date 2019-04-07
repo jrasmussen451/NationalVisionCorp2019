@@ -1,11 +1,12 @@
 <section class="jumbotron" ng-class="{'active': isActive('catalog')}" ng-show="user.Company.LogoUrl">
-    <div>
-        <h2 class="thumbnail text-left" ng-show="Four51User.isAuthenticated()">
+    <div class="container">
+        <h3 class="img-responsive col-md-2 text-center" ng-show="Four51User.isAuthenticated()">
             <a ng-click="refreshUser()" href="catalog">
-                <img ng-src="{{user.LogoURL || user.Company.LogoUrl}}" />
+                <img ng-src="{{user.Company.LogoUrl}}" />
+                <span>Corporate Store</span>
             </a>
-            <span>{{user.Company.Name}}</span>
+            <br>
             <homemessage />
-        </h2>
+        </h3>
     </div>
 </section>
