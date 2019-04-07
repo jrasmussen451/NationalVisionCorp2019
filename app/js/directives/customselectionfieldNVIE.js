@@ -1,4 +1,4 @@
-four51.app.directive('customselectionfieldnvic', ['$451', function($451) {
+four51.app.directive('customselectionfieldnvie', ['$451', function($451) {
     var obj = {
         scope: {
             customfield : '=',
@@ -8,7 +8,7 @@ four51.app.directive('customselectionfieldnvic', ['$451', function($451) {
         },
         restrict: 'E',
         transclude: true,
-        templateUrl: 'partials/controls/customSelectionFieldNVIC.html',
+        templateUrl: 'partials/controls/customSelectionFieldNVIE.html',
         link: function(scope) {
             scope.changed = function() {
                 //reset values
@@ -21,20 +21,12 @@ four51.app.directive('customselectionfieldnvic', ['$451', function($451) {
                 scope.customfield.SelectedOptionID = this.item == null ? null : this.item.ID;
                 if (this.item != null) this.item.Selected = true;
 
-                if (this.item != null && this.item.Value.indexOf('CAPEX (Free Field - CAPEX#)') > -1) {
+                if (this.item != null && this.item.Value.indexOf('Store # / Corp Dept #') > -1) {
                     scope.customfield.isOtherSelected = true;
                     this.item.Selected = true;
                     scope.customfield.SelectedOptionID = this.item.ID;
                     scope.customfield.Value = scope.other;
                 }
-
-                if (this.item != null && this.item.Value.indexOf('Other (Free Field - Enter)') > -1) {
-                    scope.customfield.isOtherSelected = true;
-                    this.item.Selected = true;
-                    scope.customfield.SelectedOptionID = this.item.ID;
-                    scope.customfield.Value = scope.other;
-                }
-
                 if (scope.change)
                     scope.change(scope.customfield);
             };

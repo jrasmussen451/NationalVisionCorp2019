@@ -89,7 +89,7 @@ function LargeShipAddressSearchCtrl($scope, LargeAddressList, Address) {
 
     $scope.searchShipAddresses = function(searchTerm) {
         $scope.shipaddresses = [' ']; //this sets shipaddresses to something while we wait for the search so we don't have to modify existing ng-show/hide(s) for address form / ship method
-        if (searchTerm && searchTerm.length > 2) {
+        if (searchTerm && searchTerm.length > 1) {
             LargeAddressList.queryShipping(searchTerm, function(list, count) {
                 $scope.shipaddresses = list;
                 $scope.shipAddressCount = count; // we will use count to add a filter for the user
@@ -134,7 +134,7 @@ function largebilladdresssearch() {
             '<span class="count" ng-show="showBillResult">No addresses found!</span>',
             ' </label>',
             '<div class="form-group">',
-            '<input class="form-control" type="text" ng-model="BillAddress" required ng-change="searchBillAddresses(BillAddress)" typeahead-min-length="3" typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in billaddresses | filter:$viewValue | limitTo:10" />',
+            '<input class="form-control" type="text" ng-model="BillAddress" required ng-change="searchBillAddresses(BillAddress)" typeahead-min-length="4" typeahead="address as (address.AddressName + \' \' + (address.FirstName || \'\') + \' \' + (address.LastName || \'\') + \' \' + (address.Street1 || \'\') + \' \' + (address.Street2 || \'\') + \' \' + (address.City || \'\') + \' \' + (address.State || \'\') + \' \' + (address.Zip || \'\')) for address in billaddresses | filter:$viewValue | limitTo:10" />',
             '<i class="fa fa-map-marker"></i>',
             '</div>',
             '</div>',
@@ -179,7 +179,7 @@ function LargeBillAddressSearchCtrl($scope, LargeAddressList, Address) {
     });
 
     $scope.searchBillAddresses = function(searchTerm) {
-        if (searchTerm && searchTerm.length > 2) {
+        if (searchTerm && searchTerm.length > 1) {
             $scope.billaddresses = [' '];
             $scope.billAddressCount = null;
             LargeAddressList.queryBilling(searchTerm, function(list, count) {

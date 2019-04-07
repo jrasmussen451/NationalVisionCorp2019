@@ -1,6 +1,21 @@
 four51.app.controller("CustomInquiryCtrl", ["$scope", "$location", "Email", function($scope, $location, Email){
     $scope.sendEmail = function(para) {
+        para.ReqDateTime = new Date();
         Email.send(para);
+        para = null;
+        alert('Your inquiry has been sent');
+        $location.path('catalog');
+    }
+    $scope.sendCorpReturnEmail = function(para) {
+        para.ReqDateTime = new Date();
+        Email.sendCorpReturn(para);
+        para = null;
+        alert('Your inquiry has been sent');
+        $location.path('catalog');
+    }
+    $scope.sendCorpDesignRequestEmail = function(para) {
+        para.ReqDateTime = new Date();
+        Email.sendCorpDesignRequest(para);
         para = null;
         alert('Your inquiry has been sent');
         $location.path('catalog');
@@ -13,7 +28,57 @@ four51.app.controller("CustomInquiryCtrl", ["$scope", "$location", "Email", func
             }
         });
     });
+    $scope.$watch(function() {
+        angular.forEach($scope.user.CustomFields, function(field) {
+            if (field.Name === 'ExpenseType') {
+                $scope.EmailDetails.ExpenseType = field.Value;
+                return field.Value;
+            }
+        });
+    });
+    $scope.$watch(function() {
+        angular.forEach($scope.user.CustomFields, function(field) {
+            if (field.Name === 'Requestor') {
+                $scope.EmailDetails.Requestor = field.Value;
+                return field.Value;
+            }
+        });
+    });
+    $scope.$watch(function() {
+        angular.forEach($scope.user.CustomFields, function(field) {
+            if (field.Name === 'RequestorEmail') {
+                $scope.EmailDetails.RequestorEmail = field.Value;
+                return field.Value;
+            }
+        });
+    });
+    $scope.$watch(function() {
+        angular.forEach($scope.user.CustomFields, function(field) {
+            if (field.Name === 'NVIFinalPiece') {
+                $scope.EmailDetails.NVIFinalPiece = field.Value;
+                return field.Value;
+            }
+        });
+    });
+    $scope.$watch(function() {
+        angular.forEach($scope.user.CustomFields, function(field) {
+            if (field.Name === 'NVICreativeMedium') {
+                $scope.EmailDetails.NVICreativeMedium = field.Value;
+                return field.Value;
+            }
+        });
+    });
+
+    // $scope.$watch(function() {
+    //     angular.forEach($scope.user.CustomFields, function(field) {
+    //         if (field.Name === 'StoreGroup') {
+    //             $scope.EmailDetails.StoreGroup = field.Value;
+    //             return field.Value;
+    //         }
+    //     });
+    // });
     $scope.EmailDetails = {};
+    $scope.EmailDetails.ReqDateTime = new Date();
     $scope.EmailDetails.Attachment = {};
     $scope.EmailDetails.Attachment2 = {};
     $scope.EmailDetails.Attachment3 = {};

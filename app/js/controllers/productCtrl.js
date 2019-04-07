@@ -65,7 +65,7 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
 			);
 		}
 
-		$scope.addToOrder = function(){
+		var _addToOrder = function(){
 			if($scope.lineItemErrors && $scope.lineItemErrors.length){
 				$scope.showAddToCartErrors = true;
 				return;
@@ -83,7 +83,8 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
 						$scope.currentOrder.Type = item.PriceSchedule.OrderType;
 					}
 				});
-			}else{
+			}
+			else{
 				$scope.currentOrder.LineItems.push($scope.LineItem);
 				$scope.currentOrder.Type = $scope.LineItem.PriceSchedule.OrderType;
 			}
@@ -100,12 +101,32 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
 					});
 				},
 				function(ex) {
+					//remove the last LineItem added to the cart.
+					$scope.currentOrder.LineItems.pop();
 					$scope.addToOrderIndicator = false;
 					$scope.lineItemErrors.push(ex.Detail);
 					$scope.showAddToCartErrors = true;
 					//$route.reload();
 				}
 			);
+		};
+
+		$scope.addToOrder = function(){
+			var confirmStr = "Item " + $scope.LineItem.Product.ExternalID + " is backordered. Any orders placed for these items will ship as soon as it is back in stock. For more info please contact nvi@supplylogic.com"
+			if($scope.LineItem.Product.InventoryEnabled){
+				if(Number($scope.LineItem.Quantity) > $scope.LineItem.Product.QuantityAvailable){
+					var confirmBackorder = confirm(confirmStr);
+					if(confirmBackorder){
+						_addToOrder();
+					}
+				}
+				else{
+					_addToOrder();
+				}
+			}
+			else{
+				_addToOrder();
+			}
 		};
 
 		$scope.setOrderType = function(type) {

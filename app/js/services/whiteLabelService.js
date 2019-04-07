@@ -1,1 +1,1 @@
-four51.app.factory('WhiteLabel', function() { var replacements = [{"key":"ProofApproval","value":"Proof Approval"}]; return { replacements: replacements }; });
+four51.app.factory('WhiteLabel', function() { var replacements = []; return { replacements: replacements }; });

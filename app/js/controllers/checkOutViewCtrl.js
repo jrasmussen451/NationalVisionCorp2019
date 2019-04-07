@@ -98,14 +98,14 @@ four51.app.controller('CheckOutViewCtrl', ['$scope', '$routeParams', '$location'
 		};
 
 		$scope.continueShopping = function() {
-			if (confirm('Do you want to save changes to your order before continuing?') === true)
+			if (confirm('Do you want to save changes to your order before continuing?') == true)
 				saveChanges(function() { $location.path('catalog') });
 			else
 				$location.path('catalog');
 		};
 
 		$scope.cancelOrder = function() {
-			if (confirm('Are you sure you wish to cancel your order?') === true) {
+			if (confirm('Are you sure you wish to cancel your order?') == true) {
 				$scope.displayLoadingIndicator = true;
 				Order.delete($scope.currentOrder,
 					function() {
