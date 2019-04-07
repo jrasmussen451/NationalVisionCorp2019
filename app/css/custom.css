@@ -1880,3 +1880,19 @@ body {margin-bottom:0;}
 .selection-thumbnail [class*="col-"]:nth-of-type(13){
     clear:both;
 }
+
+
+/*mandrill forms*/
+ocdatefield .view-form-icon > div {
+    margin:0 !important;
+}
+
+.dropdown-menu.ng-valid-date {
+     border:0;
+     box-shadow:none;
+     right:auto !important;
+}
+
+.dropdown-menu.ng-valid-date > li {
+    background:#fff;
+}
