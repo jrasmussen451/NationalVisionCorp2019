@@ -27,35 +27,18 @@
                     <i class="fa fa-edit"></i>
                 </div>
             </div>
-            <div class="view-form-icon" ng-show="user.Permissions.contains('CostCenterPerOrder') && !user.Permissions.contains('CostCenterPerLine') && user.CostCenters.length > 0 || user.Permissions.contains('CostCenterPerOrder') && user.Permissions.contains('FreeFormCostCenter')">
-                <div ng-class="{'view-form-select': !currentOrder.CostCenter && user.CostCenters.length > 1, '': currentOrder.CostCenter }">
-                    <label class="required">{{'Cost Center' | r | xlat}}</label>
-                    <select class="form-control" ng-required="user.Permissions.contains('CostCenterPerOrder') && !user.Permissions.contains('CostCenterPerLine') && !user.Permissions.contains('FreeFormCostCenter')"
-                            ng-change="updateCostCenter()" ng-if="user.CostCenters.length > 1 && !user.Permissions.contains('FreeFormCostCenter')"
-                            ng-options="center.Name as center.Name for center in user.CostCenters" ng-model="currentOrder.CostCenter"><option value=""></option></select>
-                    <input class="form-control" ng-show="user.Permissions.contains('FreeFormCostCenter')" ng-model="currentOrder.CostCenter" type='text'
-                           ng-required="user.Permissions.contains('CostCenterPerOrder') && !user.Permissions.contains('CostCenterPerLine') && user.Permissions.contains('FreeFormCostCenter')"
-                           placeholder="{{'Cost Center' | r | xlat}}" />
-                    <span ng-if="user.CostCenters.length == 1 && !user.Permissions.contains('FreeFormCostCenter')">{{currentOrder.CostCenter}}</span>
-                    <i class="fa fa-arrow-down" ng-show="user.CostCenters.length > 1 && !user.Permissions.contains('FreeFormCostCenter')"></i>
-                </div>
+            <div class="view-form-icon" ng-if="user.Permissions.contains('CostCenterPerOrder') && !user.Permissions.contains('CostCenterPerLine') && user.CostCenters.length > 0">
+                <costcentersearch></costcentersearch>
             </div>
             <div ng-show="currentOrder.OrderFields">
                 <hr />
-                <!--<div ng-repeat="field in currentOrder.OrderFields">
-                    <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
-                    <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
-                </div>-->
-                <!--from old repo, this causes the specific ship day field not to show - should it show?-->
-                <!--PW-15096 Custom Order Field-->
-                <div ng-repeat="field in currentOrder.OrderFields">
-                    <span ng-if="field.Name != 'NVISupplierShipDay'">
+                <div ng-show="currentOrder.OrderFields">
+                    <hr />
+                    <div ng-repeat="field in currentOrder.OrderFields">
                         <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
-                    </span>
-                <!--PW-15096 Custom Order Field-->
-                    <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
+                        <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
+                    </div>
                 </div>
-
             </div>
         </form>
     </div>

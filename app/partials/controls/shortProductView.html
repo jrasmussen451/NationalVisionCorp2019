@@ -4,9 +4,6 @@
             <figure ng-show="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl" >
                 <img ng-src="{{LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl}}"/>
             </figure>
-            <!--<div class="empty" ng-hide="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl">
-                <span class="fa empty"><i class="fa fa-camera"></i></span>
-            </div>-->
             <div class="empty" ng-hide="LineItem.Variant.SmallImageUrl || LineItem.Product.SmallImageUrl">
                 <span class="empty">
                     <i class="fa fa-camera fa-2x text-info"></i>
@@ -20,11 +17,9 @@
             </div>
         </a>
     </div>
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-7 col-sm-offset-1 text-left">
         <div class="panel-body">
-            <h3>{{LineItem.Product.Name}}
-                <!--<small class="pull-right text-info">{{LineItem.Product.ExternalID}}</small>-->
-            </h3>
+            <h3>{{LineItem.Product.Name}}</h3>
             <p ng-bind-html="trustedDescription(LineItem.Product)" ng-show="LineItem.Product.Description" />
             <section class="hidden-xs hidden-sm panel-body">
                 <p ng-show="LineItem.PriceSchedule.PriceBreaks[0]" ng-if="!(user.Permissions.contains('HidePricing'))">
@@ -35,15 +30,14 @@
                 <p ng-show="LineItem.Product.UnitOfMeasure">
                     {{'Unit of Measure' | r | xlat}}: {{LineItem.Product.UnitOfMeasure}}
                 </p>
-                <!--why is this commented out?-->
-                <!--<p ng-show="LineItem.Product.DisplayInventory && inventoryDisplay(LineItem.Product, LineItem.Variant) != undefined">
+
+                <p ng-show="LineItem.Product.DisplayInventory && inventoryDisplay(LineItem.Product, LineItem.Variant) != undefined">
                     {{'Quantity Available' | r | xlat}}: {{inventoryDisplay(LineItem.Product, LineItem.Variant) }}
-                </p>-->
+                </p>
                 <p class="small text-info">ID: {{LineItem.Product.ExternalID}}</p>
             </section>
-
             <!-- PW-14681 Add to Order from Product List Page -->
-            <form name="addToOrderForm" ng-submit="addToOrder()">
+            <form ng-if="showAddToOrder" name="addToOrderForm" ng-submit="addToOrder()">
                 <div class="view-form-icon" ng-show="allowAddToOrderInProductList">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
@@ -61,7 +55,6 @@
                 </div>
             </form>
             <!-- PW-14681 Add to Order from Product List Page -->
-
         </div>
     </div>
     <section class="hidden-lg hidden-md" ng-show="showSwipe" ng-swipe-right="showSwipe = false">
