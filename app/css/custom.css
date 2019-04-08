@@ -17,9 +17,9 @@ lt grey #E7E7E7
 **US FOODS**
 
 
-**NVI**
-blue    #003087
-secondary #00529c
+**NVI** (swap for Corporate)
+blue    #00529c
+secondary #003087
 */
 
 body {
@@ -224,18 +224,25 @@ a:hover, a:focus {
 
 .btn-primary {
     background-color: #fff;
-    color:#00529b;
-    border-color: #00529b;
+    color:#00529c;
+    border-color: #00529c;
 }
 
+.navbar-utility minicart .btn-primary {
+    background-color: #fff;
+    color:#00529c;
+    border-color: #00529c;
+}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary {
+.open .dropdown-toggle.btn-primary,
+.navbar-utility minicart .btn-primary:hover,
+.navbar-utility minicart .btn-primary:focus {
     color: #ffffff;
-    background-color: #00529b;
-    border-color: #00529b;
+    background-color: #00529c;
+    border-color: #00529c;
 }
 
 /**************buttons*****************/
@@ -503,8 +510,8 @@ a:hover, a:focus {
 }
 
 .dropdown-menu li a:hover {
-    background-color:#003087; /*primary*/
-    background-color:#00529b; /*secondary*/
+    background-color:#003087; /*secondary*/
+    background-color:#00529c; /*primary*/
     color:#fff;
 }
 
@@ -634,6 +641,7 @@ minicart .minicart-detail {
     z-index: 1;
     min-width: 300px;
 }
+
 .minicart .fa-shopping-cart {margin-right:5px}
 .minicart .minicart-detail .fa-caret-up {position: absolute;top: -18px;right: 10px;color: #fff;}
 .minicart .minicart-detail ul .row {position:relative;z-index:1000}
@@ -799,7 +807,7 @@ minicart .minicart-detail {
 
 .app-loading-indicator-cell i,
 .app-loading-indicator-cell p {
-    color:#003087; /*primary*/
+    color: #00529c; /*primary*/
 }
 
 .jumbotron {
@@ -948,7 +956,7 @@ ordersummary .text-info {color:grey}
 }
 
 .panel-product-list .well h3 {
-    color:#003087;
+    color:#00529c;
 }
 
 .panel-product-list .unit-of-measure {
@@ -1288,10 +1296,9 @@ ul.burgers .badge {margin-left:3px;}
 }
 
 .menu-content .parent li.active {
-    background-color:#00529b;
-    border-left:10px solid #00529b;
+    background-color:#00529c;
+    border-left:10px solid #00529c;
 }
-
 
 .menu-content .parent li.active a {
     color:#fff;
@@ -1505,11 +1512,11 @@ body {margin-bottom:0;}
 }
 
 .page-footer a {
-    border:1px solid #00529b;
+    border:1px solid #003087;
 }
 
 .page-footer a:hover {
-    background-color:#00529b;
+    background-color:#00529c;
 }
 
 .page-footer .social a {

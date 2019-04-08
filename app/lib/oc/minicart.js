@@ -20,7 +20,7 @@ function minicart() {
             '    <div class="minicart" ng-class="{\'active\': isActive(\'cart\') || isActive(\'checkout\')}">',
             '        <i class="fa fa-shopping-cart text-white"></i>',
             //'<span class="label label-default hidden-xs hidden-sm">{{currentOrder.LineItems.length + \' ITEM(S)\'}}</span>',
-            '<span class="badge bg-gold text-white">{{currentOrder.LineItems.length}}</span>',
+            '<span class="badge">{{currentOrder.LineItems.length}}</span>',
             //'<span class="hidden-xs hidden-sm"> - {{currentOrder.Total | currency }}</span> <i class="fa fa-caret-down hidden-xs hidden-sm"></i>',
             '        <div class="minicart-detail">',
             //'            <i class="fa fa-caret-up fa-2x text-white"></i>',

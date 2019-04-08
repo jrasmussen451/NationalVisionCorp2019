@@ -147,6 +147,11 @@
 * fred-meyer (7603) - this is too tall on mobile
 * military (6103)
 
+#### Changing the navigation colors (background)
+* .navbar-fixed
+* .navbar-utility .dropdown-menu
+* minicart .minicart-detail
+
 
 #### Notes
 * A default image is displayed on the category pages (in the code)
