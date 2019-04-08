@@ -19,7 +19,7 @@ lt grey #E7E7E7
 
 **NVI**
 blue    #003087
-secondary #00529b (from nationalvision.com)
+secondary #00529c
 
 **AC Lens**
 blue    #003087
@@ -455,7 +455,8 @@ a:hover, a:focus {
     top:0;
     min-height:40px;
     max-height:40px;
-    background:rgba(15, 15, 15, 0.8);
+    /*background:rgba(15, 15, 15, 0.8);*/
+    background:#003087;
     width:100%;
     right:0;
     left:0;
@@ -550,7 +551,7 @@ a:hover, a:focus {
 .navbar-utility li {
     float:left;
     color:#fff;
-    padding:0 15px;
+    padding-right:30px;
 }
 
 .navbar-utility li a {
@@ -558,7 +559,8 @@ a:hover, a:focus {
 }
 
 .navbar-utility .dropdown-menu {
-    background:rgba(15, 15, 15, 0.8);
+    /*background:rgba(15, 15, 15, 0.8);*/
+    background:#003087;
 }
 
 .navbar-utility .dropdown-menu li {
@@ -733,9 +735,10 @@ minicart .minicart-detail {
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.176);
     padding: 10px;
     position: absolute;
-    right: 0; /*10px*/
-    top:25px;
-    background-color:rgba(15, 15, 15, 0.8);
+    right: 0;
+    top:21px;
+    /*background:rgba(15, 15, 15, 0.8);*/
+    background:#003087;
     border:0;
     border-radius:0;
     z-index: 1;
