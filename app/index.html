@@ -45,8 +45,7 @@
     <section ng-hide="Four51User.isAuthenticated() || isAnon" class="container">
         <login />
     </section>
-    <section ng-if="Four51User.isAuthenticated()" id="content"  ng-class="{'catalog': isActive('catalog'), 'walmart': user.LogoName == 'Walmart', 'americas-best': user.LogoName == 'AmericasBest',
-    'military': user.LogoName == 'Military', 'fred-meyer': user.LogoName == 'FredMeyer', 'eyeglass-world': user.LogoName == 'EyeglassWorld'}">
+    <section ng-if="Four51User.isAuthenticated()" id="content"  ng-class="{'catalog': isActive('catalog')}">
 
         <!--<section class="hidden-print hidden-xs container-header">
             <navigation></navigation>
@@ -87,8 +86,7 @@
 
     </section>
 
-    <backtotop offsetbottom="40" offsetright="10" duration="200" ng-class="{'catalog': isActive('catalog'), 'walmart': user.LogoName == 'Walmart', 'americas-best': user.LogoName == 'AmericasBest',
-    'military': user.LogoName == 'Military', 'fred-meyer': user.LogoName == 'FredMeyer', 'eyeglass-world': user.LogoName == 'EyeglassWorld'}"></backtotop>
+    <backtotop offsetbottom="40" offsetright="10" duration="200" ng-class="{'catalog': isActive('catalog')}"></backtotop>
 </section>
 
     <!--<script type="text/javascript" src="//dl1d2m8ri9v3j.cloudfront.net/releases/1.2.4/tracker.js" data-customer="bfec7bded14d43a7ace2697594e1369d"></script>-->

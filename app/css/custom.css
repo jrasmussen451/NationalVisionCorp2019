@@ -20,30 +20,6 @@ lt grey #E7E7E7
 **NVI**
 blue    #003087
 secondary #00529c
-
-**AC Lens**
-blue    #003087
-yellow  #407ec9
-
-**AMERICAS BEST**
-blue    #0057b8
-red     #a6192e
-
-**EYEGLASS WORLD**
-blue    #007dba
-red     #da291c
-
-**WALMART**
-blue    #0072ce
-yellow  #ffb81c
-
-**FRED MEYER**
-blue    #071d49
-red     #da291c
-
-**MILITARY**
-blue    #002d72
-lt blue #da291c
 */
 
 body {
@@ -262,46 +238,6 @@ a:hover, a:focus {
     border-color: #00529b;
 }
 
-.americas-best .btn-primary {
-    background-color: #fff;
-    color:#a6192e;
-    border-color: #a6192e;
-}
-
-.americas-best .btn-primary:hover,
-.americas-best .btn-primary:focus,
-.americas-best .btn-primary:active,
-.americas-best .btn-primary.active,
-.americas-best .open .dropdown-toggle.btn-primary {
-    background-color: #a6192e;
-    border-color: #a6192e;
-    color:#fff;
-}
-
-.americas-best .text-primary {
-    color:#a6192e;
-}
-
-.eyeglass-world .btn-primary {
-    background-color: #fff;
-    color:#da291c;
-    border-color: #da291c;
-}
-
-.eyeglass-world .btn-primary:hover,
-.eyeglass-world .btn-primary:focus,
-.eyeglass-world .btn-primary:active,
-.eyeglass-world .btn-primary.active,
-.eyeglass-world .open .dropdown-toggle.btn-primary {
-    background-color: #da291c;
-    border-color: #da291c;
-    color:#fff;
-}
-
-.eyeglass-world .text-primary {
-    color:#da291c;
-}
-
 /**************buttons*****************/
 
 /**************alerts*****************/
@@ -313,12 +249,6 @@ a:hover, a:focus {
     border-color: #da291c;
     color: #da291c;
 }
-
-.americas-best .alert-danger {
-    border-color: #a6192e;
-    color: #a6192e;
-}
-
 
 /**************alerts*****************/
 
@@ -578,40 +508,6 @@ a:hover, a:focus {
     color:#fff;
 }
 
-.americas-best .dropdown-menu li a:hover {
-    background-color:#0057b8; /*primary*/
-    background-color:#a6192e; /*secondary*/
-}
-
-
-.americas-best .dropdown-menu > li > a:hover,
-.americas-best .dropdown-menu > li > a:focus,
-.americas-best .dropdown-menu > .active > a,
-.americas-best .dropdown-menu > .active > a:hover,
-.americas-best .dropdown-menu > .active > a:focus {
-    background-color:#a6192e; /*secondary*/
-}
-
-.eyeglass-world .dropdown-menu li a:hover {
-    background-color:#007dba; /*primary*/
-    background-color:#da291c; /*secondary*/
-}
-
-.walmart .dropdown-menu li a:hover {
-    background-color:#0072ce; /*primary*/
-    background-color:#ffb81c; /*secondary*/
-}
-
-.fred-meyer .dropdown-menu li a:hover {
-    background-color:#071d49; /*primary*/
-    background-color:#da291c; /*secondary*/
-}
-
-.military .dropdown-menu li a:hover {
-    background-color:#002d72; /*primary*/
-    background-color:#da291c; /*secondary*/
-}
-
 .navbar-utility .user i {
     margin-right:5px;
 }
@@ -716,12 +612,6 @@ categorymodal a.categories {
 
 .text-gold {color:#ffc107}
 .text-blue {color:#003087}
-
-.americas-best .text-blue {color:#0057b8}
-.eyeglass-world .text-blue {color:#007dba}
-.walmart .text-blue {color:#0072ce}
-.fred-meyer .text-blue {color:#071d49}
-.military .text-blue {color:#002d72}
 
 .minicart .text-muted{color: #717073}
 /*.minicart .text-primary{color:#D4472B}*/
@@ -912,31 +802,6 @@ minicart .minicart-detail {
     color:#003087; /*primary*/
 }
 
-.americas-best .app-loading-indicator-cell i,
-.americas-best .app-loading-indicator-cell p {
-    color:#0057b8; /*primary*/
-}
-
-.eyeglass-world .app-loading-indicator-cell i,
-.eyeglass-world .app-loading-indicator-cell p {
-    color:#007dba; /*primary*/
-}
-
-.walmart .app-loading-indicator-cell i,
-.walmart .app-loading-indicator-cell p {
-    color:#0072ce; /*primary*/
-}
-
-.fred-meyers .app-loading-indicator-cell i,
-.fred-meyers .app-loading-indicator-cell p {
-    color:#071d49; /*primary*/
-}
-
-.military .app-loading-indicator-cell i,
-.military .app-loading-indicator-cell p {
-    color:#002d72; /*primary*/
-}
-
 .jumbotron {
     margin: 5px 5px 0;
     padding:0;
@@ -1088,26 +953,6 @@ ordersummary .text-info {color:grey}
 
 .panel-product-list .unit-of-measure {
     min-height:20px;
-}
-
-.americas-best .panel-product-list .well h3 {
-    color:#0057b8;
-}
-
-.eyeglass-world .panel-product-list .well h3 {
-    color:#007dba;
-}
-
-.walmart .panel-product-list .well h3 {
-    color:#0072ce;
-}
-
-.fred-meyer .panel-product-list .well h3 {
-    color:#071d49;
-}
-
-.military .panel-product-list .well h3 {
-    color:#002d72;
 }
 
 .panel-product-list .add-to-cart .view-form-icon {
@@ -1442,51 +1287,11 @@ ul.burgers .badge {margin-left:3px;}
     border-left:10px solid #003087;
 }
 
-.americas-best .menu-content .parent li {
-    border-left: 10px solid #0057b8;
-}
-
-.eyeglass-world .menu-content .parent li {
-    border-left: 10px solid #007dba;
-}
-
-.walmart .menu-content .parent li {
-    border-left: 10px solid #0072ce;
-}
-
-.fred-meyer .menu-content .parent li {
-    border-left: 10px solid #071d49;
-}
-
-.military .menu-content .parent li {
-    border-left: 10px solid #002d72;
-}
-
 .menu-content .parent li.active {
     background-color:#00529b;
     border-left:10px solid #00529b;
 }
 
-.americas-best .menu-content .parent li.active {
-    background-color:#a6192e;
-    border-left:10px solid #a6192e;
-}
-
-.eyeglass-world .menu-content .parent li.active {
-    background-color:#da291c;
-    border-left:10px solid #da291c;
-}
-
-.walmart .menu-content .parent li.active {
-    background-color:#ffb81c;
-    border-left:10px solid #ffb81c;
-}
-
-.fred-meyer .menu-content .parent li.active,
-.military .menu-content .parent li.active {
-    background-color:#da291c;
-    border-left:10px solid #da291c;
-}
 
 .menu-content .parent li.active a {
     color:#fff;
@@ -1707,48 +1512,6 @@ body {margin-bottom:0;}
     background-color:#00529b;
 }
 
-.americas-best .page-footer a {
-    border:1px solid #a6192e;
-}
-
-.americas-best .page-footer a:hover {
-    background-color:#a6192e;
-}
-
-
-.eyeglass-world .page-footer a {
-    border:1px solid #da291c;
-}
-
-.eyeglass-world .page-footer a:hover {
-    background-color:#da291c;
-}
-
-.walmart .page-footer a {
-    border:1px solid#ffb81c;
-}
-
-.walmart .page-footer a:hover {
-    background-color:#ffb81c;
-}
-
-.fred-meyer .page-footer a {
-    border:1px solid #da291c;
-}
-
-.fred-meyer .page-footer a:hover{
-    background-color:#da291c;
-}
-
-.military .page-footer a {
-    border:1px solid #da291c;
-}
-
-.military .page-footer a:hover {
-    background-color:#da291c;
-}
-
-
 .page-footer .social a {
     padding:9px 0;
 }
@@ -1832,18 +1595,6 @@ body {margin-bottom:0;}
     margin-bottom:15px;
     padding:15px 0;
 }
-
-/*.border {
-    height: 10px;
-    background-color: #cf4520; 
-    background-image:
-    linear-gradient(
-            to right,
-            #c08b0b,
-            #c08b0b 50%,
-            #cf4520 50%
-    );
-}*/
 /**************footer*****************/
 
 
@@ -1866,13 +1617,13 @@ body {margin-bottom:0;}
     background-color:#fff;
     position:relative;
 }
+
 .selection-thumbnail img:hover {
     -webkit-transform: scale(3);
     -moz-transform: scale(3);
     transform: scale(3);
     z-index:10;
 }
-
 
 .selection-thumbnail [class*="col-"] {
     margin:0 0 20px;
@@ -1883,7 +1634,6 @@ body {margin-bottom:0;}
 .selection-thumbnail [class*="col-"]:nth-of-type(13){
     clear:both;
 }
-
 
 /*mandrill forms*/
 ocdatefield .view-form-icon > div {
